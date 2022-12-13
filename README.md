@@ -22,7 +22,7 @@ The current board of choice for these experiments is the Adafruit Feather M0 RFM
 
 ![image](images/feather-boards.jpg)
 
-The above image shows four feather boards, three which have simple coil antennas and featherwings (an OLED screen, a GPS receiver, and an SD logger). Also shown is a large 6600mAh battery and a couple of 3d printed cases.
+The above image shows four feather boards, three which have simple coil antennas and featherwings (an OLED screen, a GPS receiver, and an SD logger). Also shown is a large 6600mAh battery and a couple of 3d printed cases. Hidden from view are 400mAh batteries that fit in between the feather & featherwing boards.
 
 Some benefits of using these boards:
 
@@ -40,9 +40,18 @@ todo
 
 # Nodes
 
-- [sd-logger](/sd-logger/): A simple node that logs all traffic to SD card in JSON format.
+- [sd-logger](/sd-logger-node/): A simple node that logs all traffic to SD card in JSON format.
 
 # Experiments
+
+## Battery life
+
+| Node | Battery | Notes | Battery life |
+|-------|-------|-----| ---- |
+| GPS| 400mAh | Beaconing every 10s |TODO d/h/m/s |
+| GPS| 1200mAh | Beaconing every 10s |TODO d/h/m/s |
+| SD| 400mAh | Beaconing disabled (RX-only) |TODO d/h/m/s |
+
 
 ## Typical Range
 
