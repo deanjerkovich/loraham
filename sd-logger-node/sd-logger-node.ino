@@ -1,25 +1,3 @@
-/*
-  SD card datalogger
-
-  This example shows how to log data from three analog sensors
-  to an SD card using the SD library.
-
-  The circuit:
-   analog sensors on analog ins 0, 1, and 2
-   SD card attached to SPI bus as follows:
- ** MOSI - pin 11
- ** MISO - pin 12
- ** CLK - pin 13
- ** CS - pin 4 (for MKRZero SD: SDCARD_SS_PIN)
-
-  created  24 Nov 2010
-  modified 9 Apr 2012
-  by Tom Igoe
-
-  This example code is in the public domain.
-
-*/
-
 #include <SPI.h>
 #include <SD.h>
 #include <RH_RF95.h>  //See http://www.airspayce.com/mikem/arduino/RadioHead/
@@ -34,13 +12,15 @@ const int chipSelect = 10;
 #define LED 13
 
 #define MAX_JSON_LEN RH_RF95_MAX_MESSAGE_LEN+36
+#define MAX_FSIZE 10000
 
- 
 // Change to 434.0 or other frequency, must match RX's freq!
 #define RF95_FREQ 434.0
- 
+
 // Singleton instance of the radio driver
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
+
+int fileNum = 0;
 
 void setup() {
   // Open serial communications and wait for port to open:
@@ -116,7 +96,18 @@ void writelog(String s, int rssi){
   }
 
   // 8.3 filenames in use; cannot call it .json
-  File dataFile = SD.open("datalog.txt", FILE_WRITE);
+  char fName[12];
+  sprintf(fName, "data-%d.txt", fileNum);
+  File dataFile = SD.open(fName, FILE_WRITE);
+  while (dataFile.size() > MAX_FSIZE) {
+    dataFile.close();
+    fileNum++;
+    sprintf(fName, "data-%d.txt", fileNum);
+    dataFile = SD.open(fName, FILE_WRITE);
+  }
+
+  Serial.print("writing to: ");
+  Serial.println(fName);
 
   // if the file is available, write to it:
   if (dataFile) {
@@ -142,14 +133,7 @@ void listen() {
     uint8_t len = sizeof(buf);
     int rssi=0;
     //float vcc=voltage();
-    /*
-     * When we receive a packet, we repeat it after a random
-     * delay if:
-     * 1. It asks to be repeated.
-     * 2. We've not yet received a different packet.
-     * 3. We've waited a random amount of time.
-     * 4. The first word is not RT.
-     */
+
     if (rf95.recv(buf, &len)){
       rssi=rf95.lastRssi();
       Serial.print("Got: ");
@@ -172,6 +156,6 @@ void listen() {
 }
 
 void loop() {
-  // make a string for assembling the data to log:
+  // make a string for assembling the data to log
   listen();
 }

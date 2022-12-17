@@ -16,5 +16,7 @@ The code is pretty simple; a listen loop waits for data to be available on the r
 
 And example log, in this case a GPS transmitting LoRaHam beacon node:
 
-`{"packet": "BEACON KD2LYD-44 GPS-TX VCC=3.931 count=154 uptime=1513 gps=4051.628418N,7410.548340W,69.20,8,2 gdate=22-12-13_15:8:18", "direction":"rx", "rssi":"-59"}
-`
+```json
+{"packet": "BEACON KD2LYD-40 GPS-TX VCC=3.931 count=154 uptime=1513 gps=4052.626418N,7408.541340W,69.20,8,2 gdate=22-12-13_15:8:18", "direction":"rx", 
+"rssi":"-59"}
+```

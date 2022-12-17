@@ -36,11 +36,17 @@ Some benefits of using these boards:
 
 # Software
 
-todo
+The software run on each device is typically node specific, but reuses a fair amount (most of it should be shifted to a library).
+
+All of the arduino code on the Feathers is simple C; the raspberry pi code is python. 
+
+See the individual nodes for actual code.
 
 # Nodes
 
-- [sd-logger](/sd-logger-node/): A simple node that logs all traffic to SD card in JSON format.
+- [sd-logger-node](/sd-logger-node/): A mobile node that logs all traffic to SD card in JSON format.
+- [oled-node](/oled-node/): A mobile node with an OLED screen for displaying messages
+- [loraham-pi](/loraham-pi/): A node built around a raspberry pi for increased processing power, storage, and WiFi/Bluetooth capability. less mobile, but still extremely mobile compared to most things.
 
 # Experiments
 
@@ -48,11 +54,12 @@ todo
 
 | Node | Battery | Notes | Battery life |
 |-------|-------|-----| ---- |
-| GPS| 400mAh | Beaconing every 10s |TODO d/h/m/s |
-| GPS| 1200mAh | Beaconing every 10s |TODO d/h/m/s |
-| SD| 400mAh | Beaconing disabled (RX-only) |TODO d/h/m/s |
+| GPS| 400mAh | Beaconing every 10s |11.5 hours |
+| GPS| 400mAh | Beaconing every 60s |TODO  |
+| GPS| 1200mAh | Beaconing every 10s |TODO |
+| SD| 400mAh | Beaconing disabled (RX-only) |TODO |
 
-
+<!--- 
 ## Typical Range
 
 todo
@@ -64,3 +71,5 @@ todo
 ## GPS Topo mapping
 
 todo
+
+--> 
