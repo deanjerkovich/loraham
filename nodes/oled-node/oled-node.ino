@@ -55,7 +55,6 @@ unsigned int upCtr = 0;
 bool displayEnabled = true;
 
 float voltage(){
-
   float measuredvbat = analogRead(VBATPIN);
   measuredvbat *= 2;    // we divided by 2, so multiply back
   measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
@@ -160,14 +159,7 @@ void checkMessages() {
       uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
       uint8_t len = sizeof(buf);
       int rssi=0;
-      /*
-       * When we receive a packet, we repeat it after a random
-       * delay if:
-       * 1. It asks to be repeated.
-       * 2. We've not yet received a different packet.
-       * 3. We've waited a random amount of time.
-       * 4. The first word is not RT.
-       */
+      
       if (rf95.recv(buf, &len)){
         rssi=rf95.lastRssi();
         //digitalWrite(LED, HIGH);
@@ -230,6 +222,7 @@ void beacon(){
 
 void loop() {
   // Cannot use apparently? triggered by radio write?
+  // TODO: debug this
   //if(!digitalRead(BUTTON_A)) {
   //  display.print("A");
   //}
