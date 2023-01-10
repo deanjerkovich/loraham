@@ -81,7 +81,7 @@ def loop():
         try:
             packet_text = str(packet, "utf-8")
         except Exception:
-            print("error decoding packet, skipping\n")
+            print("error decoding packet, skipping\n",file=sys.stderr)
             continue
         #print(packet_text)
 
@@ -98,14 +98,17 @@ def loop():
         delay = random.randrange(1,20)/100
         time.sleep(delay)
         packet_rt = packet_text + "\nRT {} rssi={}".format(callsign, rfm9x.last_rssi)
-        rfm9x.send(bytes(packet_rt,"utf-8"))
+        if len(packet_rt) < 251 and callsign not in packet_text:
+            rfm9x.send(bytes(packet_rt,"utf-8"))
 
-        logdata = {}
-        logdata["time"] = time.time()
-        logdata["packet"] = packet_rt
-        logdata["direction"] = "tx"
-        out = json.dumps(logdata)
-        print(out,flush=True)
+            logdata = {}
+            logdata["time"] = time.time()
+            logdata["packet"] = packet_rt
+            logdata["direction"] = "tx"
+            out = json.dumps(logdata)
+            print(out,flush=True)
+        else:
+            print("skipping due to message size or already RT'd\n",file=sys.stderr)
 
         if not btnA.value:
             test_data = "BEACON " + callsign + " TEST"

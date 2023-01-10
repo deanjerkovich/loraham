@@ -2,8 +2,6 @@
 
 Running nodes where you don't have an outlet
 
-!nocommit
-
 ## Power requirements
 
 The following are some simple real-world tests of how long a given type of node will run for a particular battery capacity. These can be used as rough guides to how much power you'll need if you want 24x7 uptime.

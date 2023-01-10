@@ -1,20 +1,10 @@
 # loraham-pi
 
-## Hardware
+## TODO BEFORE RELEASE
 
-![tktk](../images/loraham_pi.jpg)
+- don't RT messages we've already RT'd
 
-This node makes use of the following:
-
-- A raspberry pi, the newer the better
-- The [lora radio bonnet](https://www.adafruit.com/product/4075) from Adafruit
-- A [UFL-SMA pigtail connector](https://www.adafruit.com/product/851)
-- A case
-- External antenna - anything from rubber ducky to large yagi
-
-## Software
-
-### Setup
+## Setup
 
 - You'll need at least raspian buster
 - Some deps require `rustc`, fetch it from rustup.rs
@@ -24,7 +14,7 @@ This node makes use of the following:
 - `sudo raspi-config` > interfaces > I2C > enable
 - `sudo raspi-config` > interfaces > SPI > enable
 
-### Running
+## Running
 
 When run, the program simply wraps all traffic (including its own) in JSON and sends to stdout,
 allowing you to pipe it to whatever you'd like.

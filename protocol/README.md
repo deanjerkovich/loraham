@@ -7,5 +7,3 @@ tktk
 ## LoRaHam
 
 tktk
-
-!nocommit
