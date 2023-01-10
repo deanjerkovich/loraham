@@ -1,9 +1,11 @@
 # loraham-pi
 
+![Loraham-pi](/images/loraham_pi.jpg)
+
 ## Setup
 
 - You'll need at least raspian buster
-- Some deps require `rustc`, fetch it from rustup.rs
+- Some deps require `rustc`, fetch it from [rustup.rs](https://rustup.rs)
 - create a venv: `python -m venv env`
 - and use it: `source env/bin/activate`
 - install python dependencies: `python -m pip install -r requirements.txt`
