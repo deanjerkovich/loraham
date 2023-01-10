@@ -1,9 +1,5 @@
 # loraham-pi
 
-## TODO BEFORE RELEASE
-
-- don't RT messages we've already RT'd
-
 ## Setup
 
 - You'll need at least raspian buster
