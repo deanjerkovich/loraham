@@ -16,7 +16,7 @@ You'll need
 
 The protocol is a simple ASCII text based messaging format sent over LoRa with fairly standard RF parameters.
 
-For now, see [Travis' description](https://tktk)
+For now, see [Travis' description](https://github.com/travisgoodspeed/loraham/wiki/Protocol)
 
 In future, further details will be at: [/protocol/](/protocol/)
 
@@ -72,9 +72,9 @@ See the individual nodes for actual code.
 
 # Nodes
 
-- [sd-logger-node](/sd-logger-node/): A mobile node that logs all traffic to SD card in JSON format.
-- [oled-node](/oled-node/): A mobile node with an OLED screen for displaying messages
-- [loraham-pi](/loraham-pi/): A node built around a raspberry pi for increased processing power, storage, and WiFi/Bluetooth capability. less mobile, but still extremely mobile compared to most things.
+- [sd-logger-node](/nodes/sd-logger-node/): A mobile node that logs all traffic to SD card in JSON format.
+- [oled-node](/nodes/oled-node/): A mobile node with an OLED screen for displaying messages
+- [loraham-pi](/nodes/loraham-pi/): A node built around a raspberry pi for increased processing power, storage, and WiFi/Bluetooth capability. less mobile, but still extremely mobile compared to most things.
 
 # Enclosures
 
@@ -95,7 +95,6 @@ tktk something
 ## Battery life / Power consumption
 
 See [off-grid power](/offgrid-power/)
-
 
 ## Range Tests
 

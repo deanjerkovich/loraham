@@ -2,8 +2,8 @@
 
 #define GPSSerial Serial1
 
-#define CALLSIGN "KD2LYD-44"
-#define COMMENTS "GPS Beacon"
+#define CALLSIGN "KD2LYD-45"
+#define COMMENTS "GPS Beacon ext antenna"
 
 #include <SPI.h>
 #include <RH_RF95.h>  //See http://www.airspayce.com/mikem/arduino/RadioHead/
@@ -185,7 +185,7 @@ void loop() // run over and over again
   if (millis() - timer > (BEACON_DELAY * 1000)) {
     timer = millis(); // reset the timer
 
-    Serial.print("antenna: ");
+    Serial.print("gps antenna: ");
     if (GPS.antenna == 2) {
       Serial.println("Internal");
     } else if (GPS.antenna = 3) {
@@ -203,7 +203,7 @@ void loop() // run over and over again
       Serial.print("Angle: "); Serial.println(GPS.angle);
       Serial.print("Altitude: "); Serial.println(GPS.altitude);
       Serial.print("Satellites: "); Serial.println((int)GPS.satellites);
-      snprintf(timedate, td_len, "%u-%u-%u_%u:%u:%u", GPS.year, GPS.month, GPS.day, GPS.hour, GPS.minute, GPS.seconds);
+      snprintf(timedate, td_len, "%u-%u-%u_%02u:%02u:%02u", GPS.year, GPS.month, GPS.day, GPS.hour, GPS.minute, GPS.seconds);
       Serial.print("date:");
       Serial.println(timedate);
       //radioon();
