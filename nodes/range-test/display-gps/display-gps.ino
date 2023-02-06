@@ -8,7 +8,7 @@
 //#define GPSSerial Serial1
 
 #define CALLSIGN "KD2LYD-55"
-#define COMMENTS "GPS Distance Display"
+#define COMMENTS "comment='GPS Distance Display'"
 
 #include <SPI.h>
 #include <RH_RF95.h>  //See http://www.airspayce.com/mikem/arduino/RadioHead/
