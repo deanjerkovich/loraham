@@ -1,11 +1,11 @@
 /*
    This is a digipeater node
-
+    lora-ham.org
 */
 
 //Please change these two to describe your hardware.
 #define CALLSIGN "KD2LYD-67"
-#define COMMENTS "test digipeater node"
+#define COMMENTS "digipeater node"
 #define DEBUG 1
 
 #include <SPI.h>
@@ -16,13 +16,13 @@
   #define RFM95_CS 8
   #define RFM95_RST 4
   #define RFM95_INT 7
-  #define VBATPIN A9  /**/
+  #define VBATPIN A9  */
 
 /* for feather m0  */
 #define RFM95_CS 8
 #define RFM95_RST 4
 #define RFM95_INT 3
-#define VBATPIN A7 /**/
+#define VBATPIN A7
 
 //Uncomment this line to use the UART instead of USB in M0.
 //#define Serial Serial1
@@ -88,9 +88,11 @@ int freeMemory() {
 
 // size of message history buffer
 #define MSG_HISTORY_SZ 5
-// how old a message needs to be to be evicted
-#define EVICT_TIME 15000
-// how long between doing voluntary evictions
+
+// how old a message needs to be to be evicted (millisecond)
+#define EVICT_TIME 20000
+
+// how long between doing voluntary evictions (millisecond)
 // higher is better because it's less time evicting, more time doing message things
 // but too high and you could have stale messages
 #define EVICTION_PERIOD 60000
@@ -186,6 +188,16 @@ void setup() {
 
   //Beacon once at startup.
   beacon();
+
+  if (DEBUG) {
+    Serial.println("- \n");
+    Serial.println("- \n");
+    Serial.println("- \n");
+    Serial.println("-    DEBUG is ON. Disable before running solo.\n");
+    Serial.println("- \n");
+    Serial.println("- \n");
+    Serial.println("- \n");
+  }
 }
 
 //! Uptime in seconds, correcting for rollover.
@@ -222,7 +234,7 @@ void beacon() {
            packetnum,
            uptime());
 
-  radiopacket[sizeof(radiopacket)] = 0;
+  radiopacket[sizeof(radiopacket)-1] = 0;
 
   addtomessageshistory((uint8_t*)radiopacket);
 
@@ -412,8 +424,7 @@ void digipeat() {
         uint8_t data[RH_RF95_MAX_MESSAGE_LEN];
         snprintf((char*) data,
                  RH_RF95_MAX_MESSAGE_LEN,
-                 "%s\n" //First line is the original packet.
-                 "RT %s rssi=%d VCC=%d.%03d uptime=%ld", //Then we append our call and strength as a repeater.
+                 "%s\nRT %s rssi=%d VCC=%d.%03d uptime=%ld", // original packet & append RT data
                  (char*) buf,
                  CALLSIGN,  //Repeater's callsign.
                  (int) rssi, //Signal strength, for routing.
