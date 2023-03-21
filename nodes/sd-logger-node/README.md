@@ -4,7 +4,7 @@ This example makes use of an SD featherwing to log all packets and some associat
 
 # Hardware
 
-![image](../images/feather-logger.jpg)
+![image](../../images/feather-logger.jpg)
 
 The above is an [M0 feather](https://www.adafruit.com/product/3179) with the [AdaLogger featherwing](https://www.adafruit.com/product/2922), being powered by a [400mAh LiPo](https://www.adafruit.com/product/3898) tucked inside, and with a [spring antenna](https://www.adafruit.com/product/4394). Cost of parts is approximately $52 not including SD card, which seems reasonable for a long-range mobile data logger.
 
