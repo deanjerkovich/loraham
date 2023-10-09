@@ -41,7 +41,6 @@ void setup() {
   Serial.println("card initialized.");
   radioon();
   digitalWrite(LED, HIGH);
-
 }
 
 void radioon(){
