@@ -9,9 +9,9 @@ The following are some simple real-world tests of how long a given type of node 
 | Node | Battery | Notes | Battery life | mAh/day |
 |-------|-------|-----| ---- | ---- |
 | GPS| 400mAh | Beaconing every 10s |11.5 hours | 834 mAh |
-| SD| 400mAh | Beaconing disabled (RX-only) |TODO |
+| SD| 400mAh | Beaconing disabled (RX-only) |TODO|
 | digipeater|500mAh | Medium/low traffic  | 17.4 hours | 689 mAh
-| sleepy beacon|500mAh | Beacon every 10 mins  | WIP |
+| sleepy beacon|500mAh | Beacon every 10 mins  | TODO |
 
 ## Solar garden lights
 
@@ -25,7 +25,7 @@ The biggest issue with solar garden lights is the power consumed rather than vol
 *Need larger PV panels* 
 ## Adafruit Solar Panel & Charger
 
-tktk
+TODO
 
 ![Snowy](../images/solar-snow.jpg)
 

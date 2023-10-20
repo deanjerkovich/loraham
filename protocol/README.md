@@ -2,8 +2,8 @@
 
 ## LoRa
 
-tktk
+TODO
 
 ## LoRaHam
 
-tktk
+TODO

@@ -1,11 +1,11 @@
 # OLED node
 
-tktk
+TODO
 
 # hardware
 
-tktk
+TODO
 
 # software
 
-tktk
+TODO

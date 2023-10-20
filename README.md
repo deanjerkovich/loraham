@@ -80,15 +80,15 @@ See the individual nodes for actual code.
 
 ### Project case
 
-tktk something
+TODO
 
 ### Plastidip
 
-tktk something
+TODO
 
 ### 3d printed
 
-tktk something
+TODO
 
 # Experiments
 
