@@ -223,7 +223,7 @@ void loop() // run over and over again
 
       Serial.println("We have received a LoRa message");
       buf[len] = 0;
-      if (strstr((char *)buf, "gps=") && !strstr((char*)buf, "RT")) {
+      if (strstr((char *)buf, "gps=") && !strstr((char*)buf, "RT") && !strstr((char*)buf, "gps=0.0")) {
         Serial.print("It's GPS: ");
 
         if (led_status) {
@@ -295,7 +295,7 @@ void loop() // run over and over again
           Serial.println("not updating display because we have no GPS Fix");
         }
       } else {
-        Serial.println("It's not GPS data");
+        Serial.println("It's not valid GPS data");
       }
     }
   }

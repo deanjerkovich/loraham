@@ -33,7 +33,7 @@ tktk
 
 Eton/Red Cross sell a $9.99 hand cranked flashlight (which also has an uterly useless USB port marketed as a cellphone charger). By soldering in a JST-PH socket to the battery, you can power a Feather board with hand crank - or connect the dynamo up to a constant rotation source.
 
-![marketing shot](/images/hand_crank_original.jpeg)
+![marketing shot](/images/hand_crank_original.jpg)
 *Hand crank dynamo* \
 \
 \

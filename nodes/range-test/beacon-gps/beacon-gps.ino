@@ -17,7 +17,7 @@
 
 #define LED 13
 
-#define BEACON_DELAY 3 //how many seconds to wait between beacons
+#define BEACON_DELAY 1 //how many seconds to wait between beacons
 
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
 
