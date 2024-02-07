@@ -3,7 +3,7 @@
 #define GPSSerial Serial1
 
 #define CALLSIGN "KD2LYD-45"
-#define COMMENTS "GPS Beacon ext antenna"
+#define COMMENTS "GPS Beacon"
 
 #include <SPI.h>
 #include <RH_RF95.h>  //See http://www.airspayce.com/mikem/arduino/RadioHead/

@@ -36,3 +36,7 @@ If you'd like to log *and* do any number of other things with stdout, use `tee`
 ```
 $ python loragw.py | tee >(multilog s10000 ./logs) >(./myparser.py) >(./send_to_pubsub)
 ```
+
+## Todo
+
+- implement a ring-buffer record of recent messages and eviction to prevent RT of messages that have already been RT'd
